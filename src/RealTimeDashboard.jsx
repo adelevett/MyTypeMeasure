@@ -1,13 +1,14 @@
 // Original implementation for Dual-Axis Keystroke Analyzer
 // Extends data structures from FlexKeyLogger by Terry Y. Tian
 
-import React, { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceLine, ResponsiveContainer, Cell } from 'recharts';
 import { extractMetrics, calculateDualAxis, getCalibrationData, DEFAULT_WEIGHTS } from './analyzer';
 
 const RealTimeDashboard = ({ keylog, scoringMode, onCalibStatusChange }) => {
     const [weights, setWeights] = useState(DEFAULT_WEIGHTS);
     const [showVisual, setShowVisual] = useState(true);
+    const [isExpanded, setIsExpanded] = useState(false);
 
     // Compute metrics and score whenever keylog or weights change
     const { metrics, dualAxis, calibStatus } = useMemo(() => {
@@ -39,10 +40,28 @@ const RealTimeDashboard = ({ keylog, scoringMode, onCalibStatusChange }) => {
         }
     }, [calibStatus, onCalibStatusChange]);
 
+    if (!isExpanded) {
+        return (
+            <div
+                className="dashboard-container placeholder"
+                onClick={() => setIsExpanded(true)}
+                style={{ cursor: 'pointer', textAlign: 'center', padding: '15px', border: '2px dashed #d1d5db', borderRadius: '8px', color: '#4b5563', fontWeight: 500, backgroundColor: '#f3f4f6' }}
+            >
+                Click to reveal real-time assessment of your writing style
+            </div>
+        );
+    }
+
     if (!metrics || !dualAxis) {
         return (
-            <div className="dashboard-container placeholder">
-                Start typing to generate real-time cognitive metrics...
+            <div className="dashboard-container expanded-placeholder" style={{ padding: '20px', backgroundColor: '#f9fafb', borderRadius: '8px', textAlign: 'center', color: '#6b7280' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+                    <h2 style={{ margin: 0, fontSize: '1.25rem', color: '#111827' }}>Keystroke Analyzer</h2>
+                    <button onClick={() => setIsExpanded(false)} style={{ padding: '4px 12px', border: 'none', borderRadius: '4px', cursor: 'pointer', fontSize: '0.8rem' }}>Collapse</button>
+                </div>
+                <div style={{ padding: '40px 0' }}>
+                    Waiting for input to generate real-time metrics...
+                </div>
             </div>
         );
     }
@@ -76,7 +95,10 @@ const RealTimeDashboard = ({ keylog, scoringMode, onCalibStatusChange }) => {
     return (
         <div className="dashboard-container" style={{ padding: '20px', backgroundColor: '#f9fafb', borderRadius: '8px', flex: 1 }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-                <h2 style={{ margin: 0, fontSize: '1.5rem', color: '#111827' }}>Keystroke Analyzer</h2>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <h2 style={{ margin: 0, fontSize: '1.5rem', color: '#111827' }}>Keystroke Analyzer</h2>
+                    <button onClick={() => setIsExpanded(false)} style={{ padding: '4px 8px', backgroundColor: '#eee', border: 'none', borderRadius: '4px', cursor: 'pointer', fontSize: '0.75rem' }}>Collapse</button>
+                </div>
                 <button
                     onClick={() => setShowVisual(!showVisual)}
                     style={{ padding: '8px 16px', backgroundColor: '#e5e7eb', border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: 600 }}

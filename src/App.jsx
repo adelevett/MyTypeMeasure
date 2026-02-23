@@ -2,8 +2,7 @@
 // https://github.com/terryyutian/keylogging-demo-webpage
 // MIT License — original copyright retained
 
-import { useRef } from "react";
-import React, { useState } from "react";
+import { useRef, useState } from "react";
 import "./App.css";
 import { useFlexKeyLogger } from "./FlexKeyLogger";
 import RealTimeDashboard from "./RealTimeDashboard";
@@ -63,7 +62,7 @@ const ExampleApp = () => {
           This tool combines FlexKeyLogger — a web-based keystroke logging program by Yu Tian — with a real-time writing process analyzer. As you type, your keystrokes are recorded and used to generate two descriptive scores: Linear (how directly your text was composed) and Free-Wheeling (how unconstrained your writing process was).
         </p>
         <p>
-          Since these metrics don't fully isolate from typing skill, consider choosing a scoring mode below. In Calibrated mode, your first 200 characters establish a personal typing baseline before scoring begins.
+          Since these metrics don&apos;t fully isolate from typing skill, consider choosing a scoring mode below. In Calibrated mode, your first 200 characters establish a personal typing baseline before scoring begins.
         </p>
         <p>
           When you finish, click <i>Done</i> to download your keystroke data as CSV or IDFX. IDFX files can be analyzed further in <a href="https://www.inputlog.net/">Inputlog9</a>. A JSON report including your dual-axis scores is also available.
