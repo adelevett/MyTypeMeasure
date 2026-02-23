@@ -13,7 +13,7 @@ embedded into a React application with minimal effort.
 
 ## Attribution & Modifications
 
-This project extends [FlexKeyLogger](https://github.com/terryyutian/keylogging-demo-webpage) by Terry Y. Tian, which provides the keystroke capture and activity classification infrastructure. The analytical layer — including the Linearity/Spontaneity dual-axis framework, metric normalization, and real-time dashboard — is original work built on top of that foundation.
+This project extends [FlexKeyLogger](https://github.com/terryyutian/keylogging-demo-webpage) by Terry Y. Tian, which provides the keystroke capture and activity classification infrastructure. The analytical layer — including the Linear/Free-Wheeling dual-axis framework, metric normalization, and real-time dashboard — is original work built on top of that foundation.
 
 ------------------------------------------------------------------------
 

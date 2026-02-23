@@ -60,7 +60,7 @@ const ExampleApp = () => {
           <strong>Instructions</strong>
         </p>
         <p>
-          This tool combines FlexKeyLogger — a web-based keystroke logging program by Yu Tian — with a real-time writing process analyzer. As you type, your keystrokes are recorded and used to generate two descriptive scores: Linearity (how directly your text was composed) and Spontaneity (how unconstrained your writing process was).
+          This tool combines FlexKeyLogger — a web-based keystroke logging program by Yu Tian — with a real-time writing process analyzer. As you type, your keystrokes are recorded and used to generate two descriptive scores: Linear (how directly your text was composed) and Free-Wheeling (how unconstrained your writing process was).
         </p>
         <p>
           Before beginning, choose a scoring mode below. In Calibrated mode, your first 200 characters establish a personal typing baseline before scoring begins — write naturally without correcting yourself during this phase.
@@ -112,7 +112,7 @@ const ExampleApp = () => {
 
         <div style={{ marginTop: '30px', padding: '15px', borderTop: '1px solid #e5e7eb', textAlign: 'left', fontSize: '0.85rem', color: '#6b7280' }}>
           <p style={{ margin: '0 0 10px 0' }}>
-            This project builds on <a href="https://github.com/terryyutian/keylogging-demo-webpage" target="_blank" rel="noreferrer" style={{ color: '#3b82f6', textDecoration: 'none' }}>FlexKeyLogger</a> by Yu Tian (MIT License). Benchmark statistics are drawn from Crossley, Tian et al. (EDM 2024), based on the KLiCKe Corpus. The Linearity/Spontaneity dual-axis framework — which reinterprets these metrics descriptively rather than normatively — is original to this project and is not proposed or endorsed by the original authors.
+            This project builds on <a href="https://github.com/terryyutian/keylogging-demo-webpage" target="_blank" rel="noreferrer" style={{ color: '#3b82f6', textDecoration: 'none' }}>FlexKeyLogger</a> by Yu Tian (MIT License). Benchmark statistics are drawn from Crossley, Tian et al. (EDM 2024), based on the KLiCKe Corpus. The Linear/Free-Wheeling dual-axis framework — which reinterprets these metrics descriptively rather than normatively — is original to this project and is not proposed or endorsed by the original authors.
           </p>
           <details style={{ backgroundColor: '#fff', padding: '10px', borderRadius: '6px', border: '1px solid #e5e7eb' }}>
             <summary style={{ cursor: 'pointer', fontWeight: 600 }}>Citations & BibTeX</summary>

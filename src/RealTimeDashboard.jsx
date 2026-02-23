@@ -90,12 +90,12 @@ const RealTimeDashboard = ({ keylog, scoringMode, onCalibStatusChange }) => {
                 <div style={{ flex: 2, backgroundColor: '#fff', padding: '15px', borderRadius: '8px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
                     {showVisual ? (
                         <div style={{ height: '400px', display: 'flex', flexDirection: 'column' }}>
-                            <h3 style={{ textAlign: 'center', margin: 0, marginBottom: '10px' }}>Linearity & Spontaneity Quadrants</h3>
+                            <h3 style={{ textAlign: 'center', margin: 0, marginBottom: '10px' }}>Linear & Free-Wheeling Quadrants</h3>
                             <ResponsiveContainer width="100%" height="100%">
                                 <ScatterChart margin={{ top: 20, right: 20, bottom: 20, left: 20 }}>
                                     <CartesianGrid strokeDasharray="3 3" />
-                                    <XAxis type="number" dataKey="x" name="Linearity" domain={[0, 100]} label={{ value: 'Linearity \u2192', position: 'bottom' }} />
-                                    <YAxis type="number" dataKey="y" name="Spontaneity" domain={[0, 100]} label={{ value: 'Spontaneity \u2192', angle: -90, position: 'insideLeft' }} />
+                                    <XAxis type="number" dataKey="x" name="Linear" domain={[0, 100]} label={{ value: 'Linear \u2192', position: 'bottom' }} />
+                                    <YAxis type="number" dataKey="y" name="Free-Wheeling" domain={[0, 100]} label={{ value: 'Free-Wheeling \u2192', angle: -90, position: 'insideLeft' }} />
                                     <Tooltip cursor={{ strokeDasharray: '3 3' }} formatter={(val, name) => [val.toFixed(1), name]} />
                                     <ReferenceLine x={50} stroke="#9ca3af" />
                                     <ReferenceLine y={50} stroke="#9ca3af" />
@@ -107,7 +107,7 @@ const RealTimeDashboard = ({ keylog, scoringMode, onCalibStatusChange }) => {
                                 </ScatterChart>
                             </ResponsiveContainer>
                             <div style={{ textAlign: 'center', marginTop: '10px', fontWeight: 600 }}>
-                                Score: [Linearity: {dualAxis.linearityScore.toFixed(1)}, Spontaneity: {dualAxis.spontaneityScore.toFixed(1)}]
+                                Score: [Linear: {dualAxis.linearityScore.toFixed(1)}, Free-Wheeling: {dualAxis.spontaneityScore.toFixed(1)}]
                             </div>
                         </div>
                     ) : (
@@ -117,8 +117,8 @@ const RealTimeDashboard = ({ keylog, scoringMode, onCalibStatusChange }) => {
                                 <div>
                                     <h4>Composite Scores</h4>
                                     <ul style={{ listStyle: 'none', padding: 0 }}>
-                                        <li><strong>Linearity:</strong> {dualAxis.linearityScore.toFixed(1)} / 100</li>
-                                        <li><strong>Spontaneity:</strong> {dualAxis.spontaneityScore.toFixed(1)} / 100</li>
+                                        <li><strong>Linear:</strong> {dualAxis.linearityScore.toFixed(1)} / 100</li>
+                                        <li><strong>Free-Wheeling:</strong> {dualAxis.spontaneityScore.toFixed(1)} / 100</li>
                                     </ul>
                                     <h4>Individual Components</h4>
                                     <ul style={{ listStyle: 'none', padding: 0 }}>
@@ -153,7 +153,7 @@ const RealTimeDashboard = ({ keylog, scoringMode, onCalibStatusChange }) => {
                     <h3 style={{ marginTop: 0 }}>Axis Tuning</h3>
 
                     <div style={{ marginBottom: '20px' }}>
-                        <h4 style={{ margin: '0 0 10px 0' }}>Linearity</h4>
+                        <h4 style={{ margin: '0 0 10px 0' }}>Linear</h4>
                         <div style={{ marginBottom: '15px' }}>
                             <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600 }}>Path Shape ({weights.groups.pathShape})</label>
                             <input type="range" min="0" max="1" step="0.05" value={weights.groups.pathShape} onChange={(e) => handleGroupWeightChange('pathShape', e.target.value)} style={{ width: '100%' }} />
@@ -165,7 +165,7 @@ const RealTimeDashboard = ({ keylog, scoringMode, onCalibStatusChange }) => {
                     </div>
 
                     <div>
-                        <h4 style={{ margin: '0 0 10px 0' }}>Spontaneity</h4>
+                        <h4 style={{ margin: '0 0 10px 0' }}>Free-Wheeling</h4>
                         <div style={{ marginBottom: '15px' }}>
                             <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 600 }}>Fluency ({weights.groups.fluency})</label>
                             <input type="range" min="0" max="1" step="0.05" value={weights.groups.fluency} onChange={(e) => handleGroupWeightChange('fluency', e.target.value)} style={{ width: '100%' }} />
