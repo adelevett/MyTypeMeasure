@@ -158,7 +158,7 @@ const ExampleApp = () => {
           ref={textAreaRef}
           className="text-area"
           spellCheck="false"
-          placeholder="Enter your text here"
+          placeholder="Start composing"
         ></textarea>
 
         <div style={{ marginTop: '20px', width: '100%' }}>

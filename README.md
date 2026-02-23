@@ -169,7 +169,7 @@ Bind the refs to your JSX:
 <textarea
   ref={textAreaRef}
   spellCheck="false"
-  placeholder="Enter your text here"
+  placeholder="Start composing"
 />
 
 <button ref={submitButtonRef}>
