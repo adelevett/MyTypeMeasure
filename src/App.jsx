@@ -65,7 +65,7 @@ const ExampleApp = () => {
           Since these metrics don&apos;t fully isolate from typing skill, consider choosing a scoring mode below. In Calibrated mode, your first 200 characters establish a personal typing baseline before scoring begins.
         </p>
         <p>
-          When you finish, click <i>Done</i> to download your keystroke data as CSV or IDFX. IDFX files can be analyzed further in <a href="https://www.inputlog.net/">Inputlog9</a>. A JSON report including your dual-axis scores is also available.
+          When you finish, click <i>Download Report</i> to download your keystroke data as CSV or IDFX. IDFX files can be analyzed further in <a href="https://www.inputlog.net/">Inputlog9</a>. A JSON report including your dual-axis scores is also available.
         </p>
         <p>
           Keystroke activity outside the text area is not recorded.
@@ -172,7 +172,7 @@ const ExampleApp = () => {
               onClick={handleButtonClick}
               style={{ visibility: isSubmitClicked ? "hidden" : "visible" }}
             >
-              Done
+              Download Report
             </button>
           </div>
           <div className="download-buttons">

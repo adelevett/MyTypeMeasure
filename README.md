@@ -173,7 +173,7 @@ Bind the refs to your JSX:
 />
 
 <button ref={submitButtonRef}>
-  Done
+  Download Report
 </button>
 ```
 
@@ -186,7 +186,7 @@ textarea.
 
 You can adapt FlexKeyLogger to your needs by:
 
--   Replacing the **Done** button with a timer or form submission
+-   Replacing the **Download Report** button with a timer or form submission
 -   Sending keystroke data to a backend instead of downloading files
 -   Extending logging to additional event types
 
